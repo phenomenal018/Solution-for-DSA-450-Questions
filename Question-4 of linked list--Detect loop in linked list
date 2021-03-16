@@ -1,0 +1,38 @@
+void removeLoop(Node* head)
+{
+    Node* hare=head;
+    Node* turtle=head;
+    
+    while(hare!=NULL && turtle!=NULL && hare->next!=NULL)
+    {
+        turtle=turtle->next;
+        hare=hare->next->next;
+        
+        if(hare==turtle)
+        {
+            break;
+        }
+    }
+    
+    if(turtle==head)
+    {
+        while(hare->next!=turtle)
+        {
+            hare=hare->next;
+        }
+        hare->next=NULL;
+    }
+    
+    if(hare==turtle)
+    {
+        turtle=head;
+        while(hare->next!=turtle->next)
+        {
+            hare=hare->next;
+            turtle=turtle->next;
+        }
+        hare->next=NULL;
+    }
+    
+    
+}
