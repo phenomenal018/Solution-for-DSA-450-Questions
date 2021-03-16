@@ -1,0 +1,23 @@
+struct node *reverse (struct node *head, int k)
+{
+    
+    node* temp=head;
+    node* temp1;
+    node* temp2=NULL;
+    int c=0;
+    while(temp!=NULL && c<k)
+    {
+        temp1=temp->next;
+        temp->next=temp2;
+        temp2=temp;
+        temp=temp1;
+        c++;
+    }
+    if(temp1!=NULL)
+    {
+        head->next=reverse(temp1,k);
+    }
+    return temp2;
+    // Complete this method
+}
+
