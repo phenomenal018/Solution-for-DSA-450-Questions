@@ -1,0 +1,20 @@
+bool detectLoop(Node* head)
+{
+   Node* hare;
+   Node* turtle;
+   
+   hare=head;
+   turtle=head;
+   
+   while(hare!=NULL)
+   {
+       hare=hare->next->next;
+       turtle=turtle->next;
+       if(hare==turtle)
+       {
+           return true;
+       }
+       
+   }
+   return false;
+}
