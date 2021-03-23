@@ -1,0 +1,18 @@
+bool isCircular(Node *head)
+{
+    Node* temp=head;
+    int count=0;
+    while(temp!=NULL)
+    {
+        count++;
+        temp=temp->next;
+        if(count>100)
+        {
+            return 1;
+        }
+    }
+    return false;
+    
+   // Your code here
+}
+
