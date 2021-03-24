@@ -1,0 +1,67 @@
+bool isPalindrome(Node *head)
+{
+    stack <int> s;
+    int count=0;
+    Node* temp=head;
+    while(temp!=NULL)
+    {
+        count++;
+        temp=temp->next;
+    }
+    temp=head;
+    if(count%2==0)
+    {
+        int d=count/2;
+       // d=d-1;
+        
+        while(d--)
+        {
+            s.push(temp->data);
+            temp=temp->next;
+        }
+        
+        while(temp!=NULL)
+        {
+            int a=s.top();
+            s.pop();
+            if(a!=temp->data)
+            {
+                return false;
+            }
+            temp=temp->next;
+        }
+        return true;
+        
+        
+        
+    }
+    
+    if(count%2!=0)
+    {
+        int d=count/2;
+        
+        while(d--)
+        {
+            s.push(temp->data);
+            temp=temp->next;
+        }
+        temp=temp->next;
+        
+        while(temp!=NULL)
+        {
+            int a=s.top();
+            s.pop();
+            if(a!=temp->data)
+            {
+                return false;
+            }
+            temp=temp->next;
+        }
+        return true;
+        
+        
+        
+    }
+    //Your code here
+}
+
