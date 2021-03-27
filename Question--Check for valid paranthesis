@@ -1,0 +1,71 @@
+class Solution{
+  public:
+    // Function to return if the paranthesis are balanced or not
+    bool ispar(string x)
+    {
+    stack<char> s;
+    char a;
+    int n=x.length();
+    for(int i=0;i<n;i++)
+    {
+        if(x[i]=='{' || x[i]=='[' || x[i]=='(')
+        {
+            s.push(x[i]);
+            continue;
+        }
+        
+       if(s.empty())   // it is used if a string comes having all closing characters
+        {
+            return false;
+        }
+        
+        switch(x[i])
+        {
+            case ')':
+            a=s.top();
+            s.pop();
+            
+            if(a=='{' || a=='[')
+            {
+                return false;
+            }
+            break;
+            
+            case '}':
+            a=s.top();
+            s.pop();
+            
+            if(a=='[' || a=='(')
+            {
+               return false; 
+            }
+            break;
+            
+            case ']':
+            a=s.top();
+            s.pop();
+            
+            if(a=='(' || a=='{')
+            {
+                return false;
+            }
+            break;
+        }
+        
+    }
+    if(s.empty())
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    //cout<<s.empty()<<endl;
+    
+    //return (s.empty());
+        
+    
+}
+
+};
